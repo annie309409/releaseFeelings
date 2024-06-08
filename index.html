@@ -58,7 +58,7 @@
             text-align: center;
             background-color: rgba(0,0,0,0.5);
             max-height: 40px;
-            overflow: scroll;
+            overflow-y: scroll;
         }
         div.content h1{
             line-height: 40px;
@@ -108,13 +108,16 @@
             justify-content: space-between;
             height: calc(100% - 200px);
             overflow-y: scroll;
+            align-content: baseline;
         }
         .feels section .btn{
             width: 90%;
+            max-width: 640px;
             margin: auto;
             left: 0;right: 0;
             bottom: 20px;
             position: fixed;
+            
 
         }
         .feels .feel{
@@ -260,7 +263,7 @@
                     <h2>심호흡을 크게 한번 해주세요!</h2>
                     <h3>당신의 고민을 쓰레기통에 버리세요!</h3>
                     <section>
-                        <video src="./assets/images/throwaway.mp4" muted autoplay></video>
+                        <video src="./assets/images/throwaway.mp4" muted></video>
                         <p>다시 준비가 되었으면 클릭해주세요!</p>
                         <div class="btn">준비 됐어요</div>
                     </section>
@@ -268,7 +271,7 @@
                 <article class="fin">
                     <h2>축하합니다! 이 감정을 흘려보냈습니다!</h2>
                     <section>
-                        <video src="./assets/images/firework.mp4" muted autoplay></video>
+                        <video src="./assets/images/firework.mp4" muted></video>
                         <p>다른 감정을 흘려보내고 싶다면 클릭하세요!</p>
                         <div class="btn">다른감정 흘려보내기</div>
                     </section>
@@ -285,8 +288,8 @@
        const feel = document.querySelectorAll('.feel input');
        const btn =  document.querySelectorAll('div.btn');
        const feelnow = document.querySelectorAll('.feeling');
+       const videos =  document.querySelectorAll('video');
        let feeling = [];
-
        const page = (idx)=>{
         art.forEach(e=>{e.classList.remove('active');});
         art[idx].className += ' active'
@@ -336,7 +339,7 @@
                 break;
                 case 5: page(6);
                 break;
-                case 6: page(7);
+                case 6: page(7), videos[1].get(0).play();
                 break;
                 case 7: page(2);
                 break;
