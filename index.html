@@ -331,7 +331,7 @@
                 break;
                 case 1: (page(2),check(), feelval(feeling));
                 break;
-                case 2: grd.value!=='0'? page(3):page(8);
+                case 2: grd.value!=='0'? page(3):page(8),videos[2].play();
                 break;
                 case 3: page(4);
                 break;
@@ -339,11 +339,11 @@
                 break;
                 case 5: page(6);
                 break;
-                case 6: page(7), videos[1].get(0).play();
+                case 6: page(7), videos[1].play();
                 break;
-                case 7: page(2);
+                case 7: page(2),videos[1].pause(),videos[1].currentTime=0;
                 break;
-                default: reset(),page(0);
+                default: reset(),page(0),videos[2].pause(),videos[2].currentTime=0;
                 break;
             }
         })
